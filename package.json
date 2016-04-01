@@ -7,7 +7,7 @@
     "protected-event-emitter": "define-getter.js"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha tests"
   },
   "repository": {
     "type": "git",
