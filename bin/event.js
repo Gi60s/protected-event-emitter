@@ -58,18 +58,18 @@ exports.error = defineGetter(exports, 'error', () => Err);
 /**
  * Get the number of subscribed listeners.
  * @param {string} namespace The namespace to count.
- * @param {string} [type] The type to count.
+ * @param {string} [event] The event type to count.
  * @returns {number}
  */
-exports.listenerCount = function(namespace, type) {
+exports.listenerCount = function(namespace, event) {
     if (!handlers.hasOwnProperty(namespace)) return 0;
     if (arguments.length > 1) {
-        return handlers[namespace].hasOwnProperty(type) ? handlers[namespace][type].length : 0;
+        return handlers[namespace].hasOwnProperty(event) ? handlers[namespace][event].length : 0;
     } else {
         return Object
             .keys(handlers[namespace])
-            .reduce(function(sum, type) {
-                return sum + handlers[namespace][type].length
+            .reduce(function(sum, event) {
+                return sum + handlers[namespace][event].length
             }, 0);
     }
 };
