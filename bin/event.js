@@ -74,12 +74,17 @@ exports.listenerCount = function(namespace, type) {
     }
 };
 
+/**
+ * Create a shortcut object to set and remove event listeners for a single namespace.
+ * @param {string} namespace
+ * @returns {{off: (function()), on: (function()), once: (function())}}
+ */
 exports.namespace = function(namespace) {
     return {
         off: (event, callback) => exports.off(namespace, event, callback),
         on: (event, callback) => exports.on(namespace, event, callback),
         once: (event, callback) => exports.once(namespace, event, callback)
-}
+    };
 };
 
 /**
