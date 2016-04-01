@@ -62,6 +62,7 @@ listeners.on('ready', readyHandler);    // equivalent to: event.on('my-emitter',
 listeners.off('ready', readyHandler);   // equivalent to: event.off('my-emitter', 'ready', readyHandler);
 listeners.once('ready', readyHandler);  // equivalent to: event.once('my-emitter', 'ready', readyHandler);
 ```
+
 ### namespaces
 
 A getter to get all namespaces that have been registered using the [emitter](#emitter) function. Returns an array of strings.
@@ -73,6 +74,61 @@ Remove an event handler from the specific namespace and event type.
 **Parameters**
 
 * **namespace** [required, string] - The namespace to stop listening on.
-* **event** [optional, string] - The event type to stop listening for.
+* **event** [required, string] - The event type to stop listening for.
+* **callback** [required, function] - The function to remove.
 
-**Returns** a number.
+**Returns** undefined
+
+```js
+const event = require('protected-event-emmitter');
+
+function readyHandler(data) {
+    console.log('my-emiter is ready with data: ' + data);
+}
+
+event.off('my-emitter', 'ready', readyHandler);
+```
+
+### on ( namespace, event, callback )
+
+Add an event handler from the specific namespace and event type.
+
+**Parameters**
+
+* **namespace** [required, string] - The namespace to start listening on.
+* **event** [required, string] - The event type to start listening for.
+* **callback** [required, function] - The function to call when an event on the namespace and of type occurs.
+
+**Returns** undefined
+
+```js
+const event = require('protected-event-emmitter');
+
+function readyHandler(data) {
+    console.log('my-emiter is ready with data: ' + data);
+}
+
+event.on('my-emitter', 'ready', readyHandler);
+```
+
+### once ( namespace, event, callback )
+
+Add an event handler from the specific namespace and event type that will only handle the event once.
+
+**Parameters**
+
+* **namespace** [required, string] - The namespace to start listening on.
+* **event** [required, string] - The event type to start listening for.
+* **callback** [required, function] - The function to call when an event on the namespace and of type occurs.
+
+**Returns** undefined
+
+```js
+const event = require('protected-event-emmitter');
+
+function readyHandler(data) {
+    console.log('my-emiter is ready with data: ' + data);
+}
+
+event.once('my-emitter', 'ready', readyHandler);
+```
