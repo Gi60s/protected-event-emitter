@@ -1,0 +1,39 @@
+{
+  "name": "protected-event-emitter",
+  "version": "1.0.0",
+  "description": "An event emitter that can only be called through the protected interface.",
+  "main": "index.js",
+  "bin": {
+    "protected-event-emitter": "define-getter.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gi60s/protected-event-emitter"
+  },
+  "keywords": [
+    "event",
+    "emit",
+    "protect",
+    "private",
+    "namespace",
+    "on",
+    "off",
+    "once"
+  ],
+  "author": "James Speirs",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Gi60s/protected-event-emitter/issues"
+  },
+  "homepage": "https://github.com/Gi60s/protected-event-emitter#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "custom-error-instance": "^2.1.1"
+  }
+}
