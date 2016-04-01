@@ -128,9 +128,8 @@ exports.once = function(namespace, event, callback) {
 };
 
 
-
+// register the event core emitter
 coreEmitter = exports.emitter('event-core');
-coreEmitter('register', 'event-core');
 
 
 
